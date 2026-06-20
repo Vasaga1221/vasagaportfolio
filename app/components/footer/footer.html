@@ -1,0 +1,61 @@
+<footer class="footer">
+  <div class="footer-glow"></div>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo" (click)="scrollTop()">
+          <span class="bracket">&lt;</span>
+          <span class="name">Manivasagam</span>
+          <span class="bracket">/&gt;</span>
+        </div>
+        <p class="footer-tagline">Angular Developer · Chennai, India</p>
+        <p class="footer-bio">
+          Building scalable, AI-powered web applications with Angular's latest features.
+          Open to new opportunities and collaborations.
+        </p>
+      </div>
+
+      <div class="footer-nav">
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            @for (link of navLinks; track link.href) {
+              <li><a (click)="scrollTo(link.href)">{{ link.label }}</a></li>
+            }
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="mailto:manivasagams@d-tools.com">Email Me</a></li>
+            <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
+            <li><a href="https://github.com" target="_blank">GitHub</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Skills</h4>
+          <ul>
+            <li><span>Angular 18+</span></li>
+            <li><span>TypeScript</span></li>
+            <li><span>WordPress</span></li>
+            <li><span>SEO</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="copyright">
+        &copy; {{ year }} Manivasagam S. Crafted with
+        <span class="heart">♥</span> and Angular.
+      </p>
+      <button class="back-top" (click)="scrollTop()" title="Back to top">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <polyline points="18 15 12 9 6 15"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</footer>

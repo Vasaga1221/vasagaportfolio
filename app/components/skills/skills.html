@@ -1,0 +1,71 @@
+<section id="skills" class="skills-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Expertise</span>
+      <h2>Skills & Technologies</h2>
+      <p>Crafted through 5+ years of building real-world production applications</p>
+    </div>
+
+    <!-- Category tabs -->
+    <div class="category-tabs">
+      @for (group of skillGroups; track group.category) {
+        <button
+          class="cat-tab"
+          [class.active]="activeCategory() === group.category"
+          (click)="setCategory(group.category)">
+          <span>{{ group.icon }}</span>
+          {{ group.category }}
+        </button>
+      }
+    </div>
+
+    <!-- Skills panel -->
+    <div class="skills-panel">
+      <div class="skills-grid">
+        @for (skill of activeGroup.skills; track skill.name) {
+          <div class="skill-card">
+            <div class="skill-header">
+              <span class="skill-name">{{ skill.name }}</span>
+              <span class="skill-level">{{ skill.level }}%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-fill" [style.width.%]="skill.level" [style.background]="skill.color"></div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+
+    <!-- Key competencies -->
+    <div class="competencies">
+      <div class="comp-item">
+        <div class="comp-icon">🚀</div>
+        <div class="comp-text">
+          <div class="comp-title">Performance Optimization</div>
+          <div class="comp-desc">OnPush, Virtual Scrolling, Bundle Optimization, Lazy Loading</div>
+        </div>
+      </div>
+      <div class="comp-item">
+        <div class="comp-icon">🤖</div>
+        <div class="comp-text">
+          <div class="comp-title">AI-Powered Development</div>
+          <div class="comp-desc">Claude AI, GitHub Copilot, CodeAnt AI, MCP Servers</div>
+        </div>
+      </div>
+      <div class="comp-item">
+        <div class="comp-icon">🏗️</div>
+        <div class="comp-text">
+          <div class="comp-title">Clean Architecture</div>
+          <div class="comp-desc">DI, Smart/Dumb Components, Feature Modules, SOLID Principles</div>
+        </div>
+      </div>
+      <div class="comp-item">
+        <div class="comp-icon">📱</div>
+        <div class="comp-text">
+          <div class="comp-title">Responsive Design</div>
+          <div class="comp-desc">Mobile-first, Cross-browser, Accessibility, Pixel-perfect</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

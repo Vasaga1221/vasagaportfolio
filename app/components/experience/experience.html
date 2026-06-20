@@ -1,0 +1,77 @@
+<section id="experience" class="experience-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Career</span>
+      <h2>Work Experience</h2>
+      <p>5+ years building production-grade applications across different industries</p>
+    </div>
+
+    <div class="timeline">
+      @for (job of jobs; track job.company; let i = $index) {
+        <div class="timeline-item" [class.current]="job.current">
+          <!-- Timeline node -->
+          <div class="timeline-node">
+            <div class="node-dot" [style.background]="job.color">
+              @if (job.current) {
+                <span class="node-pulse" [style.border-color]="job.color"></span>
+              }
+            </div>
+            @if (i < jobs.length - 1) {
+              <div class="node-line"></div>
+            }
+          </div>
+
+          <!-- Card -->
+          <div class="exp-card glass-card">
+            <div class="card-top">
+              <div class="company-logo" [style.background]="job.color + '22'" [style.color]="job.color">
+                {{ job.logo }}
+              </div>
+              <div class="job-meta">
+                <div class="job-role">{{ job.role }}</div>
+                <div class="job-company">{{ job.company }}</div>
+                <div class="job-info">
+                  <span class="meta-badge">
+                    <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+                    </svg>
+                    {{ job.period }}
+                  </span>
+                  <span class="meta-badge duration" [style.background]="job.color + '18'" [style.color]="job.color">
+                    {{ job.duration }}
+                  </span>
+                  <span class="meta-badge">
+                    <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+                    </svg>
+                    {{ job.location }}
+                  </span>
+                </div>
+              </div>
+              @if (job.current) {
+                <div class="current-badge">Current</div>
+              }
+            </div>
+
+            <ul class="achievements">
+              @for (ach of job.achievements; track ach) {
+                <li>
+                  <svg class="check-icon" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                    <polyline points="20 6 9 17 4 12"/>
+                  </svg>
+                  {{ ach }}
+                </li>
+              }
+            </ul>
+
+            <div class="tech-stack">
+              @for (t of job.tech; track t) {
+                <span class="tech-pill" [style.border-color]="job.color + '44'" [style.color]="job.color">{{ t }}</span>
+              }
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

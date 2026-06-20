@@ -1,0 +1,115 @@
+<section id="contact" class="contact-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Contact</span>
+      <h2>Let's Work Together</h2>
+      <p>Open to new opportunities, freelance projects, and collaborations</p>
+    </div>
+
+    <div class="contact-grid">
+      <!-- Info -->
+      <div class="contact-info">
+        <div class="info-header">
+          <h3>Get In Touch</h3>
+          <p>Whether you have a project in mind, want to discuss Angular best practices, or just want to say hi — my inbox is always open.</p>
+        </div>
+
+        <div class="info-cards">
+          @for (info of contactInfo; track info.label) {
+            <div class="info-card">
+              <span class="info-icon">{{ info.icon }}</span>
+              <div class="info-text">
+                <div class="info-label">{{ info.label }}</div>
+                @if (info.href) {
+                  <a [href]="info.href" class="info-value link" target="_blank">{{ info.value }}</a>
+                } @else {
+                  <div class="info-value">{{ info.value }}</div>
+                }
+              </div>
+            </div>
+          }
+        </div>
+
+        <div class="availability-card">
+          <div class="avail-dot"></div>
+          <div>
+            <div class="avail-title">Available for Freelance</div>
+            <div class="avail-desc">Currently open to select freelance projects and consulting</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div class="contact-form-wrapper">
+        @if (!submitted()) {
+          <form class="contact-form" (ngSubmit)="onSubmit()" #contactFormRef="ngForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Full Name</label>
+                <input
+                  id="name"
+                  type="text"
+                  [(ngModel)]="form.name"
+                  name="name"
+                  placeholder="John Doe"
+                  required />
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input
+                  id="email"
+                  type="email"
+                  [(ngModel)]="form.email"
+                  name="email"
+                  placeholder="john@example.com"
+                  required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input
+                id="subject"
+                type="text"
+                [(ngModel)]="form.subject"
+                name="subject"
+                placeholder="Project Inquiry / Collaboration"
+                required />
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea
+                id="message"
+                [(ngModel)]="form.message"
+                name="message"
+                rows="5"
+                placeholder="Tell me about your project or idea..."
+                required>
+              </textarea>
+            </div>
+
+            <button type="submit" class="submit-btn" [disabled]="loading()">
+              @if (loading()) {
+                <span class="spinner"></span>
+                Sending...
+              } @else {
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                </svg>
+                Send Message
+              }
+            </button>
+          </form>
+        } @else {
+          <div class="success-state">
+            <div class="success-icon">✅</div>
+            <h3>Message Sent!</h3>
+            <p>Thanks for reaching out. I'll get back to you within 24 hours.</p>
+            <button class="btn-outline" (click)="resetForm()">Send Another</button>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>

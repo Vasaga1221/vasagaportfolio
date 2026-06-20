@@ -1,0 +1,187 @@
+.experience-section {
+  background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-card-2) 100%);
+}
+
+/* Timeline */
+.timeline {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: 24px;
+  position: relative;
+
+  &.current .exp-card {
+    border-color: rgba(108,99,255,0.4);
+    box-shadow: 0 0 30px rgba(108,99,255,0.1);
+  }
+}
+
+/* Node */
+.timeline-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 24px;
+}
+
+.node-dot {
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 0 12px currentColor;
+
+  .node-pulse {
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    border: 2px solid;
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+}
+
+.node-line {
+  flex: 1;
+  width: 2px;
+  background: linear-gradient(var(--border), var(--border));
+  margin: 8px 0;
+  min-height: 40px;
+}
+
+/* Card */
+.exp-card {
+  padding: 28px;
+  margin-bottom: 24px;
+}
+
+.card-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.company-logo {
+  width: 52px; height: 52px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  font-weight: 900;
+  flex-shrink: 0;
+  border: 1px solid currentColor;
+}
+
+.job-meta {
+  flex: 1;
+  min-width: 200px;
+
+  .job-role {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+  }
+
+  .job-company {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--primary-light);
+    margin-bottom: 8px;
+  }
+
+  .job-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+  }
+}
+
+.meta-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  background: rgba(255,255,255,0.04);
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+
+  &.duration {
+    font-weight: 700;
+    border: none;
+  }
+}
+
+.current-badge {
+  background: var(--gradient-primary);
+  color: white;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 100px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  height: fit-content;
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Achievements */
+.achievements {
+  list-style: none;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+
+    .check-icon {
+      flex-shrink: 0;
+      margin-top: 3px;
+      color: var(--primary-light);
+    }
+  }
+}
+
+/* Tech */
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  .tech-pill {
+    font-size: 0.75rem;
+    font-family: 'JetBrains Mono', monospace;
+    padding: 4px 10px;
+    border-radius: 6px;
+    border: 1px solid;
+    background: transparent;
+    font-weight: 500;
+  }
+}
+
+@media (max-width: 640px) {
+  .timeline-item { grid-template-columns: 24px 1fr; gap: 12px; }
+  .exp-card { padding: 20px; }
+  .card-top { flex-direction: column; }
+  .node-dot { width: 14px; height: 14px; }
+}

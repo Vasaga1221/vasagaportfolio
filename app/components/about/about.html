@@ -1,0 +1,92 @@
+<section id="about" class="about-section">
+  <div class="container">
+    <div class="about-grid">
+      <!-- Visual side -->
+      <div class="about-visual">
+        <div class="avatar-wrapper">
+          <div class="avatar-ring ring-1"></div>
+          <div class="avatar-ring ring-2"></div>
+          <div class="avatar-core">
+            <div class="avatar-initials">MS</div>
+            <div class="avatar-glow"></div>
+          </div>
+          <div class="tech-orbits">
+            <span class="orbit-item" style="--angle: 0deg">⚡</span>
+            <span class="orbit-item" style="--angle: 60deg">🅰️</span>
+            <span class="orbit-item" style="--angle: 120deg">🎯</span>
+            <span class="orbit-item" style="--angle: 180deg">🌐</span>
+            <span class="orbit-item" style="--angle: 240deg">🤖</span>
+            <span class="orbit-item" style="--angle: 300deg">📱</span>
+          </div>
+        </div>
+
+        <div class="code-snippet">
+          <div class="code-header">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+            <span class="code-file">profile.ts</span>
+          </div>
+          <pre class="code-body"><span class="kw">const</span> <span class="var">developer</span> = &#123;
+  <span class="key">name</span>: <span class="str">'Manivasagam S'</span>,
+  <span class="key">role</span>: <span class="str">'Angular Developer'</span>,
+  <span class="key">location</span>: <span class="str">'Chennai, India'</span>,
+  <span class="key">experience</span>: <span class="num">5</span>,
+  <span class="key">ai</span>: <span class="bool">true</span>,
+&#125;;</pre>
+        </div>
+      </div>
+
+      <!-- Content side -->
+      <div class="about-content">
+        <div class="section-tag">About Me</div>
+        <h2>Building the <span class="gradient-text">Future of Web</span></h2>
+
+        <p class="about-bio">
+          A passionate <strong>Angular Developer</strong> with 5+ years of experience crafting
+          scalable web applications. Currently driving innovation at <strong>D-Tools Inc.</strong>
+          where I built the Global Calendar — a complex event management system leveraging
+          Angular's latest features.
+        </p>
+        <p class="about-bio">
+          I embrace AI-assisted development workflows using Claude, GitHub Copilot, and CodeAnt AI
+          to accelerate delivery and maintain code quality. My focus is on performance, clean
+          architecture, and seamless user experiences across all devices.
+        </p>
+
+        <div class="highlight-grid">
+          @for (h of highlights; track h.label) {
+            <div class="highlight-card">
+              <span class="highlight-icon">{{ h.icon }}</span>
+              <div>
+                <div class="highlight-label">{{ h.label }}</div>
+                <div class="highlight-desc">{{ h.desc }}</div>
+              </div>
+            </div>
+          }
+        </div>
+
+        <div class="tech-tags">
+          <div class="tags-title">Tech Stack</div>
+          <div class="tags-list">
+            @for (tech of techStack; track tech) {
+              <span class="tech-tag">{{ tech }}</span>
+            }
+          </div>
+        </div>
+
+        <div class="about-actions">
+          <a href="#contact" class="btn-primary" onclick="event.preventDefault(); document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">
+            Get In Touch
+          </a>
+          <a href="#" class="btn-outline" onclick="event.preventDefault()">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            Download CV
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
