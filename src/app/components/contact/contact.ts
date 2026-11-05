@@ -23,8 +23,8 @@ export class ContactComponent {
     {
       icon: '📧',
       label: 'Email',
-      value: 'manivasagams@d-tools.com',
-      href: 'mailto:manivasagams@d-tools.com',
+      value: 'mac.mani369vasaga@gmail.com',
+      href: 'mailto:mac.mani369vasaga@gmail.com',
     },
     {
       icon: '📍',
